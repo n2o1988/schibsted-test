@@ -1,0 +1,53 @@
+<div class="scm-list-item row">
+	<a class="scm-list-item__user"
+		 target="_blank"
+		ng-href="{{::$ctrl.item.user.link}}">
+		<img class="img-circle hidden-xs hidden-sm" ng-src="{{::$ctrl.userPicLarge}}" />
+		<img class="img-circle visible-xs" ng-src="{{::$ctrl.userPicSmall}}" />
+		<img class="img-circle visible-sm" ng-src="{{::$ctrl.userPicMedium}}" />
+		<div class="scm-list-item__user-name">{{::$ctrl.item.user.name}}</div>
+		<div class="scm-list-item__user-likes" title="{{::$ctrl.item.user.metadata.connections.likes.total}} likes">
+			<span class="glyphicon glyphicon-heart"></span>
+			{{::$ctrl.item.user.metadata.connections.likes.total}}
+		</div>
+	</a>
+	<div class="scm-list-item__info">
+		<div class="scm-list-item__header">
+			<h5 class="scm-list-item__title">{{::$ctrl.item.name}}</h5>
+			<div class="scm-list-item__date">{{::$ctrl.item.created_time | date}}</div>
+		</div>
+		<div class="scm-list-item__description" ng-click="$ctrl.descrCollapsed = !$ctrl.descrCollapsed">
+			<div ng-if="::$ctrl.shortDescr" ng-show="$ctrl.descrCollapsed">{{::$ctrl.shortDescr}}</div>
+			<div ng-show="!$ctrl.shortDescr || !$ctrl.descrCollapsed">{{::$ctrl.item.description}}</div>
+		</div>
+		<div class="scm-list-item__footer" ng-class="{playing: $ctrl.playing}">
+			<div class="scm-list-item__video" ng-click="$ctrl.playing = true;">
+				<div ng-show="!$ctrl.playing">
+					<img class="img-thumbnail hidden-xs" ng-src="{{::$ctrl.videoPicLarge}}" />
+					<img class="img-thumbnail visible-xs" ng-src="{{::$ctrl.videoPicSmall}}" />
+				</div>
+				<div ng-if="::$ctrl.playing" ng-bind-html="::$ctrl.getEmbedHtml()"></div>
+			</div>
+			<div class="scm-list-item__stats">
+				<p title="{{::$ctrl.item.stats.plays}} Plays">
+					<span class="glyphicon glyphicon-play"></span>
+					{{::$ctrl.item.stats.plays}}
+				</p>
+				<p title="{{::$ctrl.item.metadata.connections.likes.total}} Likes">
+					<span class="glyphicon glyphicon-heart"></span>
+					{{::$ctrl.item.metadata.connections.likes.total}}
+				</p>
+				<p title="{{::$ctrl.item.metadata.connections.comments.total}} Comments">
+					<span class="glyphicon glyphicon-comment"></span>
+					{{::$ctrl.item.metadata.connections.comments.total}}
+				</p>
+				<p title="Open in new tab">
+					<a ng-href="{{::$ctrl.item.link}}" target="_blank">
+						<span class="glyphicon glyphicon-link"></span>
+						External link
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

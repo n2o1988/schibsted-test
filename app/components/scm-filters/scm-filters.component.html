@@ -1,0 +1,33 @@
+<div class="scm-filters container-fluid">
+	<div class="row">
+		<h4>Filters</h4>
+	</div>
+	<div class="row">
+		<div class="scm-filters__filter col-sm-4">
+			<select
+					class="form-control"
+					ng-model="$ctrl.filters.maxResults"
+					ng-change="$ctrl.handleOnChange()"
+					ng-options="opt.value as opt.descr for opt in $ctrl.maxResultsOptions"></select>
+		</div>
+		<div class="scm-filters__filter col-sm-4">
+			<label class="checkbox-inline">
+				<input type="checkbox" ng-model="$ctrl.filters.userLikes" ng-change="$ctrl.handleOnChange()" />
+				Users with more than 10 likes
+			</label>
+		</div>
+		<div class="scm-filters__filter col-sm-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-search"></span>
+				</span>
+				<input
+						class="form-control"
+						type="text"
+						placeholder="Search by text..."
+						ng-model="$ctrl.filters.text"
+						ng-change="$ctrl.handleOnChange()" />
+			</div>
+		</div>
+	</div>
+</div>
