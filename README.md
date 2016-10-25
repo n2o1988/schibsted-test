@@ -107,3 +107,6 @@ For more information on AngularJS please check out http://angularjs.org/
 [protractor]: https://github.com/angular/protractor
 [selenium]: http://docs.seleniumhq.org/
 [travis]: https://travis-ci.org/
+
+## Screenshot
+![Alt text](/screen.png?raw=true "Screenshot")
